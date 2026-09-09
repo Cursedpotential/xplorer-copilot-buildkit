@@ -1,0 +1,44 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "//": "Xplorer copilot profile. GOTCHA A-13: opencode enables ALL tools with NO permission by default. Every built-in filesystem/shell tool is denied here so the agent can only act through Xplorer's permissioned MCP verbs.",
+  "permission": {
+    "read": "deny",
+    "write": "deny",
+    "edit": "deny",
+    "multiedit": "deny",
+    "patch": "deny",
+    "bash": "deny",
+    "webfetch": "deny",
+    "xplorer_*": "ask",
+    "xplorer_list_directory": "allow",
+    "xplorer_get_file_properties": "allow",
+    "xplorer_get_directory_size": "allow",
+    "xplorer_semantic_search": "allow",
+    "xplorer_hybrid_search": "allow",
+    "xplorer_grep": "allow",
+    "xplorer_extract_text": "allow",
+    "xplorer_find_duplicates": "allow",
+    "xplorer_analyze_directory": "allow",
+    "xplorer_preview_organization": "allow",
+    "xplorer_move_file": "ask",
+    "xplorer_copy_file": "ask",
+    "xplorer_rename": "ask",
+    "xplorer_bulk_rename": "ask",
+    "xplorer_trash": "ask",
+    "xplorer_execute_organization": "ask",
+    "xplorer_write_file": "ask",
+    "xplorer_set_tags": "ask",
+    "xplorer_set_note": "ask"
+  },
+  "mcp": {
+    "xplorer": {
+      "type": "local",
+      "//": "GOTCHA A-9: replace with the absolute path from std::env::current_exe(). Never hardcode a build-specific path.",
+      "command": [
+        "C:/ABSOLUTE/PATH/TO/xplorer.exe",
+        "--mcp-server"
+      ],
+      "enabled": true
+    }
+  }
+}
